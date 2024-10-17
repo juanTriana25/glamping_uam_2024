@@ -7,4 +7,9 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //})->middleware('auth:sanctum');
 
-Route::get('/hola/locos', [App\Http\Controllers\CabinController::class, 'index']);
+Route::apiResource('cabins',
+     App\Http\Controllers\CabinController::class);
+
+Route::get('/hola/locos', 
+    [App\Http\Controllers\CabinController::class, 
+    'index'])->name('hola.locos');

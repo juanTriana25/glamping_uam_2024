@@ -12,7 +12,7 @@ class CabinController extends Controller
      */
     public function index()
     {
-        return "Hola mundo";
+        return "hola mundo";
     }
 
     /**
@@ -20,7 +20,8 @@ class CabinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cabin = Cabin::create($request->all());
+        return response()->json(['data' => $cabin], 201);
     }
 
     /**
@@ -44,6 +45,8 @@ class CabinController extends Controller
      */
     public function destroy(Cabin $cabin)
     {
-        //
+        $cabin->delete();
+        return response(null, 204);
+        
     }
 }
